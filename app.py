@@ -7,9 +7,6 @@ from psycopg import connect
 app = Flask(__name__)
 CORS(app)
 
-
-load_dotenv('C:/Users/frost/Desktop/ultimo hack js/app/src/backend/.env')
-
 app.config["AWS_ACCESS_KEY_ID"] = environ.get("AWS_ACCESS_KEY_ID")
 app.config["AWS_SECRET_KEY_ID"] = environ.get("AWS_SECRET_KEY_ID")
 
