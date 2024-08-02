@@ -10,6 +10,11 @@ CORS(app)
 app.config["AWS_ACCESS_KEY_ID"] = environ.get("AWS_ACCESS_KEY_ID")
 app.config["AWS_SECRET_KEY_ID"] = environ.get("AWS_SECRET_KEY_ID")
 
+@cross_origin(allow_headers=['Content-Type'])   
+@app.route("/hola")
+def hello():
+    return "hola"
+
 
 def connect_to_db():
     conn = connect(
