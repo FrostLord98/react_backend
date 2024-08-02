@@ -1,7 +1,7 @@
 from flask import Flask,request
 from dotenv import load_dotenv
 from flask_cors import CORS
-from os import getenv
+from os import environ
 from psycopg import connect
 
 app = Flask(__name__)
@@ -10,16 +10,16 @@ CORS(app)
 
 load_dotenv('C:/Users/frost/Desktop/ultimo hack js/app/src/backend/.env')
 
-app.config["AWS_ACCESS_KEY_ID"] = getenv.get("AWS_ACCESS_KEY_ID")
-app.config["AWS_SECRET_KEY_ID"] = getenv.get("AWS_SECRET_KEY_ID")
+app.config["AWS_ACCESS_KEY_ID"] = environ.get("AWS_ACCESS_KEY_ID")
+app.config["AWS_SECRET_KEY_ID"] = environ.get("AWS_SECRET_KEY_ID")
 
 
 def connect_to_db():
     conn = connect(
-    host = getenv.get("DB_HOST"),
-    user = getenv.get("DB_USER"),
-    password = getenv.get("DB_PASSWORD"),
-    dbname = getenv.get("DB_NAME"),
+    host = environ.get("DB_HOST"),
+    user = environ.get("DB_USER"),
+    password = environ.get("DB_PASSWORD"),
+    dbname = environ.get("DB_NAME"),
     
     )
     return conn
